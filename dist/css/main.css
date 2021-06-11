@@ -1,3 +1,60 @@
 body {
-  background: #298f7e;
-  color: white; }
+  background: #366779;
+  color: set-text-color(#366779);
+  height: 100%;
+  font-family: "Nanum Gothic", sans-serif; }
+  body#bg-image {
+    background: url(/dist/bg-1.jpg);
+    background-attachment: fixed;
+    background-size: cover; }
+    body#bg-image:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: rgba(54, 103, 121, 0.7); }
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400; }
+  h1.lg-heading,
+  h2.lg-heading,
+  h3.lg-heading {
+    font-size: 6rem; }
+  h1.sm-heading,
+  h2.sm-heading,
+  h3.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem; }
+
+a {
+  color: #c1a051;
+  text-decoration: none; }
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%; }
+
+.text-secondary {
+  color: #c1a051; }
+
+main {
+  padding: 5rem;
+  height: 100%; }
+  main .icons {
+    margin-top: 1.5rem; }
+    main .icons a {
+      padding: 0.5rem; }
+      main .icons a:hover {
+        color: #c16651;
+        transition: all 1s ease-out; }
+  main#home {
+    overflow: hidden; }
+    main#home h1 {
+      margin-top: 20vh; }

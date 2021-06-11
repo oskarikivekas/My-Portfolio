@@ -1,6 +1,99 @@
-$primary-color: #298f7e;
+$primary-color: #366779;
+$secondary-color: #c1a051;
+$color-a: #c16651;
+$show-home-image: true;
+$home-img: url(/dist/bg-1.jpg);
+$background-opacity: 0.7;
+
+//soft highlight when hovering
+@mixin easeOut {
+  transition: all 1s ease-out;
+}
+
+@mixin background {
+  @if $show-home-image {
+    &#bg-image {
+      background: $home-img;
+      background-attachment: fixed;
+      background-size: cover;
+
+      //background pseudo element
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: rgba($primary-color, $background-opacity);
+      }
+    }
+  }
+}
 
 body {
+  @include background();
   background: $primary-color;
-  color: white;
+  color: set-text-color($primary-color);
+  height: 100%;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+  }
+}
+a {
+  color: $secondary-color;
+  text-decoration: none;
+}
+
+//fixed menu bar
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  padding: 5rem;
+  height: 100%;
+
+  .icons {
+    margin-top: 1.5rem;
+
+    a {
+      padding: 0.5rem;
+
+      &:hover {
+        color: $color-a;
+        @include easeOut();
+      }
+    }
+  }
+
+  &#home {
+    //hide scrollbar
+    overflow: hidden;
+    h1 {
+      //set home text to be somewhat middle of the screen
+      margin-top: 20vh;
+    }
+  }
 }
