@@ -1,0 +1,22 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oskarikivekas/My-Portfolio.git"
+  },
+  "author": "oskari kivekäs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oskarikivekas/My-Portfolio/issues"
+  },
+  "homepage": "https://github.com/oskarikivekas/My-Portfolio#readme",
+  "dependencies": {
+    "node-sass": "^6.0.0"
+  }
+}
