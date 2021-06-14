@@ -1,6 +1,8 @@
 @import "config";
 
-.menu-button {
+/*Menu.scss has the menu container and shadow elements which are reusable for every page
+*/
+.hamburger-menu {
   position: absolute;
   z-index: 3;
   right: 35px;
@@ -10,9 +12,9 @@
 
   .button-line {
     width: 28px;
-    height: 3px;
+    height: 4px;
     margin: 0 0 5px 0;
-    background: $secondary-color;
+    background-color: $secondary-color;
     @include easeOut;
   }
 
@@ -27,32 +29,140 @@
         opacity: 0;
       }
       &:nth-child(3) {
-        transform: rotate(-45deg) translate(6.5px, -6px);
+        transform: rotate(-45deg) translate(6.5px, -7.5px);
       }
     }
   }
 }
 
-.menu {
-  position: fixed;
-  top: 0;
+.container {
+  background: $primary-color;
+  background-image: repeating-linear-gradient(
+    -35deg,
+    $primary-color,
+    $secondary-color 100%
+  );
+  height: 100vh;
   width: 100%;
-  opacity: 0.8;
-  visibility: hidden;
+  overflow: hidden;
+  transform-style: preserve-3d;
 
-  &.show {
-    visibility: visible;
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: 3rem;
   }
 
-  &-branding,
-  &-nav {
+  .logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 4rem;
+    position: absolute;
+    top: 15px;
+    left: 35px;
+  }
+
+  .logo span {
+    font-weight: 300;
+  }
+  &.back .main {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    @include easeOut;
+  }
+
+  .menu {
+    max-width: 72rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    top: 0;
     display: flex;
-    flex-flow: column wrap;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    float: left;
-    width: 50%;
+    color: #fff;
     height: 100vh;
     overflow: hidden;
+  }
+
+  .nav {
+    position: absolute;
+    z-index: 2;
+    width: 25%;
+    right: 0;
+
+    top: 40vh;
+    @include easeOut();
+  }
+  .nav-item {
+    // items offset
+    transform: translate3d(1000px, 0, 0);
+    @include easeOut();
+    // bring items from right
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+    &.current > a {
+      color: $color-a;
+    }
+  }
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 0.7rem, 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    height: 3vh;
+    @include easeOut;
+
+    &:hover {
+      color: $color-a;
+    }
+  }
+  @for $x from 1 through 4 {
+    .nav-item:nth-child(#{$x}) {
+      transition-delay: $x * 0.01s;
+    }
+  }
+
+  .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: 0.6s;
+    background-color: #fff;
+    overflow: hidden;
+    //initial scale set to less than 100. Was causing scrollbar to appear
+    transform: scale(0.99);
+    &.one {
+      z-index: -1;
+      opacity: 0.15;
+    }
+    &.two {
+      z-index: -2;
+      opacity: 0.1;
+    }
+  }
+
+  &.back .shadow.one {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+    @include easeOut;
+  }
+
+  &.back .shadow.two {
+    transform: perspective(1300px) rotateY(20deg) translateZ(115px) scale(0.5);
+    @include easeOut;
   }
 }
