@@ -1,6 +1,5 @@
 @import "config";
 @import "menu";
-@import "mobile";
 
 * {
   padding: 0;
@@ -13,13 +12,39 @@ body {
   color: set-text-color($primary-color);
   height: 100%;
   font-family: "Nanum Gothic", sans-serif;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.main {
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.text-secondary {
+  color: $secondary-color;
+}
+
+#main {
   position: relative;
   width: 100%;
   left: 0;
-  overflow: hidden;
+  z-index: 5;
   transform-origin: left;
   transform-style: preserve-3d;
   @include easeOut;
@@ -41,16 +66,84 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
   }
 
-  .inner {
-    max-width: 35rem;
-    text-align: center;
-    color: #fff;
+  .content {
     padding: 0 2rem;
-  }
+    position: relative;
+    margin-left: 1rem;
+    margin-right: 1rem;
 
-  .title {
-    font-size: 2.7rem;
+    &-header {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+    }
+
+    .icons {
+      margin-top: 1rem;
+
+      a {
+        padding: 0.4rem;
+
+        &:hover {
+          color: $secondary-color;
+          @include easeOut();
+        }
+      }
+    }
+
+    .about-info {
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      display: grid;
+      grid-gap: 30px;
+      grid-template-areas:
+        "bioimage bio bio"
+        "job1 job2 job3";
+      grid-template-columns: repeat(3, 1fr);
+
+      .bio-image {
+        width: 200px;
+        grid-area: bioimage;
+        margin: auto;
+        border-radius: 40%;
+        border: $secondary-color 3px solid;
+      }
+
+      .bio {
+        grid-area: bio;
+      }
+
+      .job-1 {
+        grid-area: job1;
+      }
+
+      .job-2 {
+        grid-area: job2;
+      }
+
+      .job-3 {
+        grid-area: job3;
+      }
+
+      .job {
+        background: lighten($primary-color, 1);
+        padding: 0.5rem;
+        border-bottom: $secondary-color 5px solid;
+      }
+    }
   }
 }
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  height: 60px;
+  margin-top: 50px;
+}
+
+@import "mobile";
