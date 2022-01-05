@@ -1,9 +1,23 @@
+// Large screens
+@include mediaXl {
+  #main .content .projects {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 // desktop&laptop
 @include mediaLg {
+  #main .content .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 // Tablets/halfscreen
 @include mediaMd {
+  #main .content .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   #main {
     align-items: center;
     text-align: center;
@@ -26,7 +40,7 @@
     left: 60%;
   }
 
-  .about-info {
+  #main .content .about-info {
     grid-template-areas:
       "bioimage"
       "bio"
@@ -56,5 +70,9 @@
 
   .nav {
     left: 40%;
+  }
+
+  #main .content .projects {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

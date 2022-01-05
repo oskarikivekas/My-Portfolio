@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/oskarikivekas/My-Portfolio#readme",
   "dependencies": {
-    "node-sass": "^6.0.0"
+    "node-sass": "^6.0.1"
   }
 }

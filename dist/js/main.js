@@ -20,7 +20,6 @@ function toggleMenu(){
         
         // set menu state
         showMenu = true;
-        setTimeout
 
     }else{
         container.classList.remove('back')
@@ -34,3 +33,4 @@ function toggleMenu(){
         showMenu = false;
     }
 } 
+
