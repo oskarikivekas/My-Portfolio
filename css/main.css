@@ -1,0 +1,379 @@
+/*Menu.scss has the menu container and shadow elements which are reusable for every page
+*/
+.container {
+  background: #366779;
+  background-image: repeating-linear-gradient(-35deg, #366779, #c1a051 100%);
+  height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  transform-style: preserve-3d; }
+  .container.back #main {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .container .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: 5rem; }
+    .container .navbar .menu {
+      max-width: 72rem;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      overflow: hidden; }
+      .container .navbar .menu .hamburger-menu {
+        position: absolute;
+        right: 35px;
+        top: 35px;
+        cursor: pointer;
+        transition: all 0.5s ease-out; }
+        .container .navbar .menu .hamburger-menu .button-line {
+          width: 28px;
+          height: 4px;
+          margin: 0 0 5px 0;
+          background-color: #c1a051;
+          transition: all 0.5s ease-out; }
+        .container .navbar .menu .hamburger-menu.close {
+          transform: rotate(180deg); }
+          .container .navbar .menu .hamburger-menu.close .button-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px); }
+          .container .navbar .menu .hamburger-menu.close .button-line:nth-child(2) {
+            opacity: 0; }
+          .container .navbar .menu .hamburger-menu.close .button-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6.5px, -7.5px); }
+      .container .navbar .menu .logo {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        line-height: 4rem;
+        position: absolute;
+        top: 15px;
+        left: 35px; }
+      .container .navbar .menu .logo span {
+        font-weight: 300; }
+  .container .nav {
+    position: absolute;
+    width: 30%;
+    top: 0;
+    right: 5%;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: all 0.5s ease-out; }
+  .container .nav-item {
+    list-style: none;
+    margin-bottom: 1rem;
+    transform: translate3d(1000px, 0, 0);
+    transition: all 0.5s ease-out; }
+    .container .nav-item.show {
+      transform: translate3d(0, 0, 0); }
+    .container .nav-item.current > a {
+      color: #c16651; }
+  .container .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 2rem;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0.7rem, 0;
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #eee;
+    text-decoration: none;
+    height: 3vh;
+    white-space: nowrap;
+    transition: all 0.5s ease-out; }
+    .container .nav-link:hover {
+      color: #c16651; }
+  .container .nav-item:nth-child(1) {
+    transition-delay: 0.02s; }
+  .container .nav-item:nth-child(2) {
+    transition-delay: 0.04s; }
+  .container .nav-item:nth-child(3) {
+    transition-delay: 0.06s; }
+  .container .nav-item:nth-child(4) {
+    transition-delay: 0.08s; }
+  .container .shadow {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: 0.6s;
+    background-color: #fff;
+    transform: scale(0.999); }
+    .container .shadow.one {
+      z-index: -1;
+      opacity: 0.15; }
+    .container .shadow.two {
+      z-index: -2;
+      opacity: 0.1; }
+  .container.back .shadow.one {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .container.back .shadow.two {
+    transform: perspective(1300px) rotateY(20deg) translateZ(115px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .container.back .nav {
+    visibility: visible; }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+body {
+  color: set-text-color(#366779);
+  height: 100%;
+  font-family: "Nanum Gothic", sans-serif;
+  line-height: 1.5;
+  margin: 0; }
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400; }
+  h1.lg-heading,
+  h2.lg-heading,
+  h3.lg-heading {
+    font-size: 6rem; }
+  h1.sm-heading,
+  h2.sm-heading,
+  h3.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(57, 109, 128, 0.5); }
+
+a {
+  color: white;
+  text-decoration: none; }
+
+.text-secondary {
+  color: #c1a051; }
+
+#main {
+  position: relative;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-out; }
+  #main header {
+    min-height: 100vh;
+    width: 100%;
+    background: url(/dist/images/bg-1.jpg) no-repeat top center/cover;
+    background-attachment: fixed; }
+  #main .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(54, 103, 121, 0.8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    flex-direction: column;
+    min-height: calc(100vh - 60px);
+    overflow-y: hidden; }
+  #main .content-header {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    margin-top: 5rem; }
+  #main .content::-webkit-scrollbar {
+    display: none; }
+  #main .content {
+    padding: 0 2rem;
+    position: relative;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-height: 845px;
+    overflow: auto; }
+    #main .content .icons {
+      margin-top: 1rem; }
+      #main .content .icons a {
+        padding: 0.4rem; }
+        #main .content .icons a:hover {
+          color: #c1a051;
+          transition: all 0.5s ease-out; }
+    #main .content .about-info {
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      display: grid;
+      grid-gap: 30px;
+      grid-template-areas: "bioimage bio bio" "job1 job1 job1";
+      /* grid-template-columns: repeat(3, 1fr); */ }
+      #main .content .about-info .bio-image {
+        width: 200px;
+        grid-area: bioimage;
+        margin: auto;
+        border-radius: 40%;
+        border: #c1a051 3px solid; }
+      #main .content .about-info .bio {
+        grid-area: bio;
+        background: #386a7d;
+        padding: 0.5rem;
+        border-bottom: #c1a051 5px solid; }
+      #main .content .about-info .job-1 {
+        grid-area: job1; }
+      #main .content .about-info .job-2 {
+        grid-area: job2; }
+      #main .content .about-info .job-3 {
+        grid-area: job3; }
+      #main .content .about-info .job {
+        background: #386a7d;
+        padding: 0.5rem;
+        border-bottom: #c1a051 5px solid; }
+    #main .content .projects {
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(5, 1fr);
+      justify-content: center;
+      margin: 2rem; }
+      #main .content .projects .card {
+        display: grid;
+        width: fit-content;
+        grid-template-columns: 300px;
+        grid-template-rows: 210px 210px 80px;
+        grid-template-areas: "image" "text" "stats";
+        color: #c1a051;
+        border-radius: 18px;
+        background: white;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+        text-align: center; }
+        #main .content .projects .card .card-image {
+          grid-area: image; }
+        #main .content .projects .card .card-text {
+          grid-area: text; }
+        #main .content .projects .card .card-stats {
+          grid-area: stats; }
+        #main .content .projects .card .card-text {
+          grid-area: text;
+          margin: 25px; }
+        #main .content .projects .card .card-text .date {
+          color: #ff076e;
+          font-size: 13px; }
+        #main .content .projects .card .card-text p {
+          color: grey;
+          font-size: 15px;
+          font-weight: 300; }
+        #main .content .projects .card .card-text h2 {
+          margin-top: auto;
+          font-size: 28px; }
+        #main .content .projects .card .card-image {
+          grid-area: image;
+          background: url("/dist/images/project1.jpg");
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+          background-size: cover; }
+        #main .content .projects .card .card-stats {
+          grid-area: stats;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+          background: #c1a051; }
+          #main .content .projects .card .card-stats .stat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            padding: 10px; }
+            #main .content .projects .card .card-stats .stat .link:hover {
+              color: #c16651; }
+    #main .content .boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-top: 1rem; }
+      #main .content .boxes div {
+        font-size: 2rem;
+        border: 2px #fff solid;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 3rem;
+        transition: all 0.5s ease-out; }
+    #main .content .btn, #main .content .btn-dark, #main .content .btn-light {
+      display: block;
+      padding: 0.5rem 1rem;
+      border: 0;
+      margin-bottom: 0.3rem; }
+      #main .content .btn:hover, #main .content .btn-dark:hover, #main .content .btn-light:hover {
+        background: #c1a051; }
+    #main .content .btn-dark {
+      background: black;
+      color: #fff; }
+    #main .content .btn-light {
+      background: #c8dee6;
+      color: #333; }
+
+#main-footer {
+  text-align: center;
+  font-weight: 600;
+  padding: 1rem;
+  background: #c1a051;
+  color: set-text-color(#366779);
+  height: 60px;
+  margin-top: 50px;
+  width: 100%; }
+
+@media screen and (min-width: 1250px) {
+  #main .content .projects {
+    grid-template-columns: repeat(4, 1fr); } }
+
+@media screen and (min-width: 950px) and (max-width: 1250px) {
+  #main .content .projects {
+    grid-template-columns: repeat(3, 1fr); } }
+
+@media screen and (max-width: 950px) {
+  #main .content .projects {
+    grid-template-columns: repeat(2, 1fr); }
+  #main {
+    align-items: center;
+    text-align: center; }
+  .container.back #main {
+    transform: perspective(1300px) rotateY(40deg) translateZ(110px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .container.back .shadow.one {
+    transform: perspective(1300px) rotateY(40deg) translateZ(60px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .container.back .shadow.two {
+    transform: perspective(1300px) rotateY(40deg) translateZ(15px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .nav {
+    left: 60%; }
+  #main .content .about-info {
+    grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
+    grid-template-columns: 1fr; } }
+
+@media screen and (max-width: 619px) {
+  .container.back #main {
+    transform: perspective(1300px) rotateY(40deg) translateZ(-1100px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .container.back .shadow.one {
+    transform: perspective(1300px) rotateY(40deg) translateZ(-900px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .container.back .shadow.two {
+    transform: perspective(1300px) rotateY(40deg) translateZ(-700px) scale(0.5);
+    transition: all 0.5s ease-out; }
+  .nav {
+    left: 40%; }
+  #main .content .projects {
+    grid-template-columns: repeat(1, 1fr); } }
