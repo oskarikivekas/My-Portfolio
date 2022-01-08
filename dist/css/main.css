@@ -216,7 +216,7 @@ a {
       height: 100%;
       display: grid;
       grid-gap: 30px;
-      grid-template-areas: "bioimage bio bio" "job1 job2 job3";
+      grid-template-areas: "bioimage bio bio" "job1 job1 job1";
       /* grid-template-columns: repeat(3, 1fr); */ }
       #main .content .about-info .bio-image {
         width: 200px;
@@ -225,7 +225,10 @@ a {
         border-radius: 40%;
         border: #c1a051 3px solid; }
       #main .content .about-info .bio {
-        grid-area: bio; }
+        grid-area: bio;
+        background: #386a7d;
+        padding: 0.5rem;
+        border-bottom: #c1a051 5px solid; }
       #main .content .about-info .job-1 {
         grid-area: job1; }
       #main .content .about-info .job-2 {
@@ -285,7 +288,7 @@ a {
           grid-template-rows: 1fr;
           border-bottom-left-radius: 15px;
           border-bottom-right-radius: 15px;
-          background: #ff076e; }
+          background: #c1a051; }
           #main .content .projects .card .card-stats .stat {
             display: flex;
             align-items: center;
@@ -293,11 +296,39 @@ a {
             flex-direction: column;
             color: white;
             padding: 10px; }
+            #main .content .projects .card .card-stats .stat .link:hover {
+              color: #c16651; }
+    #main .content .boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-top: 1rem; }
+      #main .content .boxes div {
+        font-size: 2rem;
+        border: 2px #fff solid;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 3rem;
+        transition: all 0.5s ease-out; }
+    #main .content .btn, #main .content .btn-dark, #main .content .btn-light {
+      display: block;
+      padding: 0.5rem 1rem;
+      border: 0;
+      margin-bottom: 0.3rem; }
+      #main .content .btn:hover, #main .content .btn-dark:hover, #main .content .btn-light:hover {
+        background: #c1a051; }
+    #main .content .btn-dark {
+      background: black;
+      color: #fff; }
+    #main .content .btn-light {
+      background: #c8dee6;
+      color: #333; }
 
 #main-footer {
   text-align: center;
+  font-weight: 600;
   padding: 1rem;
-  background: #264956;
+  background: #c1a051;
   color: set-text-color(#366779);
   height: 60px;
   margin-top: 50px;
