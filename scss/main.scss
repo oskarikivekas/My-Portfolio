@@ -51,7 +51,7 @@ a {
   header {
     min-height: 100vh;
     width: 100%;
-    background: url("images/bg-1.jpg") no-repeat top center / cover;
+    background: url("../images/bg-1.jpg") no-repeat top center / cover;
     background-attachment: fixed;
   }
 
@@ -194,7 +194,7 @@ a {
         }
         .card-image {
           grid-area: image;
-          background: url("images/project1.jpg");
+          background: url("../images/project1.jpg");
           border-top-left-radius: 15px;
           border-top-right-radius: 15px;
           background-size: cover;
